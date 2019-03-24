@@ -35,9 +35,10 @@ const app = express();
 //access public
 app.get('/api/images' , (req , res) => {
     const {startImage , countImage} = req.query;
-    unsplash.photos.listPhotos(startImage , countImage , "latest")
+    unsplash.photos.listPhotos(startImage , countImage )
     .then(unsplashToJson)
     .then(photos =>{
+        if(!photos) {res.status(400).json('fuck')}
         res.json(photos);
     });
 });

@@ -25,7 +25,8 @@ export default class Images extends Component {
     fetchNewImages = () =>{
         //changing state
         this.setState(
-        {startImage : this.state.countImage +1 });
+        {startImage : this.state.startImage + this.state.countImage});
+        console.log(this.state.startImage )
         //getting new images
         const {countImage , startImage} = this.state;
         this.fetchImage( startImage , countImage);     
